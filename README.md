@@ -2,7 +2,7 @@
 <u>_*RasPi_Supervision.json*_</u> is using Node Exporter and Cadvisor with Prometheus to display the load of a Raspberry Pi or any other Server/NAS.   
 <img src="https://github.com/Froschie/raspi-supervision/raw/main/RasPi_Supervision.png" width="910" height="1114" alt="Grafana Dashboard">
 
-Grafana Dashboard based on the initial Dashboards:  
+This Dashboard is based on:  
 [Prometheus Node Exporter Full](https://grafana.com/grafana/dashboards/1860)  
 [Docker Container](https://grafana.com/grafana/dashboards/11600)  
 

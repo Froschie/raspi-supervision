@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": 215,
-  "iteration": 1609417425257,
+  "iteration": 1609767173753,
   "links": [],
   "panels": [
     {
@@ -1498,8 +1498,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "100 - ((node_filesystem_avail_bytes{instance=\"$SELECT_nodeexporter\",job=\"$SELECT_job\",device!~'rootfs'} * 100) / node_filesystem_size_bytes{instance=\"$SELECT_nodeexporter\",job=\"$SELECT_job\",device!~'rootfs'})",
+          "expr": "100 - ((node_filesystem_avail_bytes{device!=\"shm\",instance=\"$SELECT_nodeexporter\",job=\"$SELECT_job\",device!~'rootfs'} * 100) / node_filesystem_size_bytes{device!=\"shm\",instance=\"$SELECT_nodeexporter\",job=\"$SELECT_job\",device!~'rootfs'})",
           "format": "time_series",
+          "interval": "",
           "intervalFactor": 2,
           "legendFormat": "{{mountpoint}}",
           "refId": "A",
@@ -1835,8 +1836,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(container_network_receive_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)",
+          "expr": "sum(rate(container_network_receive_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)*8",
           "hide": false,
+          "interval": "",
           "intervalFactor": 2,
           "legendFormat": "{{name}}",
           "refId": "A",
@@ -1865,7 +1867,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:3502",
-          "format": "Bps",
+          "format": "bps",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -1943,7 +1945,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(container_network_transmit_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)",
+          "expr": "sum(rate(container_network_transmit_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)*8",
+          "interval": "",
           "intervalFactor": 2,
           "legendFormat": "{{name}}",
           "refId": "A",
@@ -1972,7 +1975,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:3587",
-          "format": "Bps",
+          "format": "bps",
           "label": "",
           "logBase": 1,
           "max": null,
@@ -2131,9 +2134,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
-          "text": "raspi4",
-          "value": "raspi4"
+          "selected": true,
+          "text": "DS718",
+          "value": "DS718"
         },
         "datasource": "$SELECT_datasource",
         "definition": "label_values(node_uname_info, job)",
@@ -2159,8 +2162,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "",
-          "value": ""
+          "text": "192.168.10.50:9100",
+          "value": "192.168.10.50:9100"
         },
         "datasource": "$SELECT_datasource",
         "definition": "label_values(node_uname_info{job=\"$SELECT_job\"}, instance)",
@@ -2186,8 +2189,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "",
-          "value": ""
+          "text": "192.168.10.50:8005",
+          "value": "192.168.10.50:8005"
         },
         "datasource": "$SELECT_datasource",
         "definition": "label_values(container_cpu_user_seconds_total{job=~\"$SELECT_job\"}, instance)",
@@ -2219,5 +2222,5 @@
   "timezone": "",
   "title": "RasPi Supervisionx",
   "uid": "m3BOcCiRkx",
-  "version": 12
+  "version": 13
 }

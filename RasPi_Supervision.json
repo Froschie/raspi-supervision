@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": 215,
-  "iteration": 1609846113774,
+  "iteration": 1609860578698,
   "links": [],
   "panels": [
     {
@@ -1583,7 +1583,7 @@
             "h": 10,
             "w": 12,
             "x": 0,
-            "y": 6
+            "y": 20
           },
           "hiddenSeries": false,
           "id": 165,
@@ -1720,7 +1720,6 @@
           "dashes": false,
           "datasource": "$SELECT_datasource",
           "decimals": 2,
-          "description": "",
           "fieldConfig": {
             "defaults": {
               "custom": {},
@@ -1734,7 +1733,7 @@
             "h": 7,
             "w": 12,
             "x": 12,
-            "y": 6
+            "y": 20
           },
           "hiddenSeries": false,
           "id": 159,
@@ -1859,7 +1858,7 @@
             "h": 10,
             "w": 12,
             "x": 0,
-            "y": 7
+            "y": 39
           },
           "hiddenSeries": false,
           "id": 1,
@@ -1969,7 +1968,7 @@
             "h": 10,
             "w": 12,
             "x": 12,
-            "y": 7
+            "y": 39
           },
           "hiddenSeries": false,
           "id": 10,
@@ -2078,7 +2077,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 17
+            "y": 49
           },
           "hiddenSeries": false,
           "id": 8,
@@ -2185,7 +2184,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 17
+            "y": 49
           },
           "hiddenSeries": false,
           "id": 9,
@@ -2280,7 +2279,6 @@
             }
           ],
           "datasource": "$SELECT_datasource",
-          "description": "",
           "editable": true,
           "error": false,
           "fieldConfig": {
@@ -2294,7 +2292,7 @@
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 25
+            "y": 57
           },
           "hideTimeOverride": false,
           "id": 158,
@@ -2402,7 +2400,7 @@
       "type": "row"
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -2411,847 +2409,983 @@
         "y": 8
       },
       "id": 167,
-      "panels": [],
-      "title": "Smartmon",
-      "type": "row"
-    },
-    {
-      "datasource": "$SELECT_datasource",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
+      "panels": [
+        {
+          "cacheTimeout": null,
+          "columns": [],
+          "datasource": "raspi_monitor_prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
           },
-          "custom": {},
-          "mappings": [],
-          "max": 100,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": 75
-              },
-              {
-                "color": "red",
-                "value": 90
-              }
-            ]
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 9
           },
-          "unit": "percent"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 12,
-        "x": 0,
-        "y": 9
-      },
-      "id": 171,
-      "links": [],
-      "options": {
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "7.3.1",
-      "targets": [
-        {
-          "expr": "sort_desc(100-smartmon_wear_leveling_count_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"})",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "{{ disk }}",
-          "refId": "A"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "SSD Wear Level",
-      "type": "gauge"
-    },
-    {
-      "cacheTimeout": null,
-      "columns": [],
-      "datasource": "$SELECT_datasource",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fontSize": "100%",
-      "gridPos": {
-        "h": 6,
-        "w": 12,
-        "x": 12,
-        "y": 9
-      },
-      "id": 179,
-      "links": [],
-      "pageSize": null,
-      "pluginVersion": "6.2.5",
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 2,
-        "desc": false
-      },
-      "styles": [
-        {
-          "$$hashKey": "object:1578",
-          "alias": "Total Written",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "decimals": 1,
-          "pattern": "Value #B",
-          "thresholds": [],
-          "type": "number",
-          "unit": "bytes"
-        },
-        {
-          "$$hashKey": "object:1579",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "link": false,
-          "mappingType": 1,
-          "pattern": "Time",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:1580",
-          "alias": "Wear Level",
-          "align": "auto",
-          "colorMode": "value",
-          "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(245, 54, 54, 0.9)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 0,
-          "mappingType": 1,
-          "pattern": "Value #A",
-          "thresholds": [
-            "60",
-            "80"
-          ],
-          "type": "number",
-          "unit": "percent"
-        },
-        {
-          "$$hashKey": "object:2061",
-          "alias": "Device Model",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "device_model",
-          "thresholds": [],
-          "type": "string",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2084",
-          "alias": "Disk",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "disk",
-          "thresholds": [],
-          "type": "string",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2105",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "instance",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2116",
-          "alias": "Serial Number",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "serial_number",
-          "thresholds": [],
-          "type": "string",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2184",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "firmware_version",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2195",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "job",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2206",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "lun_id",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2217",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "model_family",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2228",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "product",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2239",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "smart_id",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2250",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "revision",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2261",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "type",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:2311",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "vendor",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        }
-      ],
-      "targets": [
-        {
-          "expr": "(smartmon_total_lbas_written_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"} * on(disk,instance,device_model,serial_number) smartmon_device_sector_size_logical)",
-          "format": "table",
-          "instant": true,
-          "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "{{disk}} ({{device_model}}, sn: {{serial_number}})",
-          "refId": "B"
-        },
-        {
-          "expr": "(100 - smartmon_wear_leveling_count_value {instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"})",
-          "format": "table",
-          "instant": true,
-          "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "",
-          "refId": "A"
-        },
-        {
-          "expr": "(smartmon_total_lbas_read_raw_value{} * on(disk,instance,device_model,serial_number) smartmon_device_sector_size_logical)",
-          "interval": "",
-          "legendFormat": "",
-          "refId": "C"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Total Data Written",
-      "transform": "table",
-      "type": "table-old"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$SELECT_datasource",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "links": []
-        },
-        "overrides": []
-      },
-      "fill": 0,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 15
-      },
-      "hiddenSeries": false,
-      "id": 175,
-      "interval": "",
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "sideWidth": null,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "connected",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.1",
-      "pointradius": 1,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "avg(smartmon_airflow_temperature_cel_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number)",
-          "format": "time_series",
-          "hide": false,
-          "instant": false,
-          "interval": "1m",
-          "intervalFactor": 1,
-          "legendFormat": "{{device_model}} (S/N: {{serial_number}})",
-          "refId": "B"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Disk Temperature",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:1067",
-          "decimals": null,
-          "format": "celsius",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:1068",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "columns": [],
-      "datasource": "$SELECT_datasource",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fontSize": "100%",
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 15
-      },
-      "id": 177,
-      "interval": "1h",
-      "links": [],
-      "pageSize": null,
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 4,
-        "desc": true
-      },
-      "styles": [
-        {
-          "$$hashKey": "object:1665",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Time",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:1666",
-          "alias": "Power On Time",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "decimals": 2,
-          "pattern": "Value #A",
-          "thresholds": [],
-          "type": "number",
-          "unit": "h"
-        },
-        {
-          "$$hashKey": "object:1667",
-          "alias": "",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "instance",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:1668",
-          "alias": "Load Cycles",
-          "align": "auto",
-          "colorMode": "value",
-          "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(245, 54, 54, 0.9)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 1,
-          "mappingType": 1,
-          "pattern": "Value #B",
-          "thresholds": [
-            "20000",
-            "50000"
-          ],
-          "type": "number",
-          "unit": "short",
-          "valueMaps": [
+          "id": 190,
+          "links": [],
+          "pageSize": null,
+          "pluginVersion": "6.2.5",
+          "scroll": true,
+          "showHeader": true,
+          "sort": {
+            "col": 2,
+            "desc": false
+          },
+          "styles": [
             {
-              "text": "",
-              "value": ""
+              "$$hashKey": "object:6394",
+              "alias": "",
+              "align": "auto",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "Time",
+              "thresholds": [],
+              "type": "hidden",
+              "unit": "short"
             },
             {
-              "text": "",
-              "value": ""
+              "$$hashKey": "object:6405",
+              "alias": "Device Model",
+              "align": "auto",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "device_model",
+              "preserveFormat": true,
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            },
+            {
+              "$$hashKey": "object:6428",
+              "alias": "Disk",
+              "align": "auto",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "disk",
+              "preserveFormat": true,
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            },
+            {
+              "$$hashKey": "object:6449",
+              "alias": "",
+              "align": "auto",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "instance",
+              "thresholds": [],
+              "type": "hidden",
+              "unit": "short"
+            },
+            {
+              "$$hashKey": "object:6460",
+              "alias": "Serial Number",
+              "align": "auto",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "serial_number",
+              "preserveFormat": true,
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            },
+            {
+              "$$hashKey": "object:6481",
+              "alias": "",
+              "align": "auto",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "Value",
+              "thresholds": [],
+              "type": "hidden",
+              "unit": "short"
+            },
+            {
+              "$$hashKey": "object:8481",
+              "alias": "Firmware",
+              "align": "auto",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "firmware_version",
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            },
+            {
+              "$$hashKey": "object:8502",
+              "alias": "Model",
+              "align": "auto",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "model_family",
+              "preserveFormat": false,
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
             }
-          ]
-        },
-        {
-          "$$hashKey": "object:190",
-          "alias": "Device Model",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
           ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "device_model",
-          "thresholds": [],
-          "type": "string",
-          "unit": "short"
-        },
-        {
-          "$$hashKey": "object:495",
-          "alias": "Serial Number",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
+          "targets": [
+            {
+              "expr": "max(smartmon_power_on_hours_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (model_family,device_model,serial_number,firmware_version,disk)",
+              "format": "table",
+              "instant": true,
+              "interval": "",
+              "intervalFactor": 1,
+              "legendFormat": "",
+              "refId": "B"
+            }
           ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "serial_number",
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Disk Info",
+          "transform": "table",
+          "type": "table-old"
+        },
+        {
+          "activePatternIndex": -3,
+          "datasource": "$SELECT_datasource",
+          "debug_mode": false,
+          "defaultPattern": {
+            "row_col_wrapper": "_",
+            "bgColors": "green|orange|red",
+            "bgColors_overrides": "0->green|2->red|1->yellow",
+            "textColors": "red|orange|green",
+            "textColors_overrides": "0->red|2->green|1->yellow",
+            "clickable_cells_link": "",
+            "col_name": "Value",
+            "decimals": 2,
+            "delimiter": "|",
+            "displayTemplate": "_value_",
+            "defaultBGColor": "transparent",
+            "defaultTextColor": "",
+            "enable_bgColor": false,
+            "enable_bgColor_overrides": false,
+            "enable_textColor": false,
+            "enable_textColor_overrides": false,
+            "enable_clickable_cells": false,
+            "enable_time_based_thresholds": false,
+            "enable_transform": false,
+            "enable_transform_overrides": false,
+            "filter": {
+              "value_above": "",
+              "value_below": ""
+            },
+            "format": "short",
+            "name": "Default Pattern",
+            "null_color": "darkred",
+            "null_textcolor": "black",
+            "null_value": "No data",
+            "pattern": "*",
+            "row_name": "_series_",
+            "thresholds": "70,90",
+            "time_based_thresholds": [],
+            "transform_values": "_value_|_value_|_value_",
+            "transform_values_overrides": "0->down|1->up",
+            "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+            "valueName": "max"
+          },
+          "default_title_for_rows": "Device",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "align": null,
+                "filterable": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 9
+          },
+          "hide_first_column": false,
+          "id": 186,
+          "patterns": [
+            {
+              "row_col_wrapper": "_",
+              "bgColors": "green|orange|red",
+              "bgColors_overrides": "0->green|2->red|1->yellow",
+              "textColors": "red|orange|green",
+              "textColors_overrides": "0->red|2->green|1->yellow",
+              "clickable_cells_link": "",
+              "col_name": "Power Cycles",
+              "decimals": 2,
+              "delimiter": "|",
+              "displayTemplate": "_value_",
+              "defaultBGColor": "",
+              "defaultTextColor": "",
+              "enable_bgColor": false,
+              "enable_bgColor_overrides": false,
+              "enable_textColor": false,
+              "enable_textColor_overrides": false,
+              "enable_clickable_cells": false,
+              "enable_time_based_thresholds": false,
+              "enable_transform": false,
+              "enable_transform_overrides": false,
+              "filter": {
+                "value_above": "",
+                "value_below": ""
+              },
+              "format": "string",
+              "name": "Power Cycles",
+              "null_color": "darkred",
+              "null_textcolor": "black",
+              "null_value": "No data",
+              "pattern": "PowerC.*$",
+              "row_name": "_0_",
+              "thresholds": "70,90",
+              "time_based_thresholds": [],
+              "transform_values": "_value_|_value_|_value_",
+              "transform_values_overrides": "0->down|1->up",
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+              "valueName": "current"
+            },
+            {
+              "row_col_wrapper": "_",
+              "bgColors": "green|orange|red",
+              "bgColors_overrides": "0->green|2->red|1->yellow",
+              "textColors": "red|orange|green",
+              "textColors_overrides": "0->red|2->green|1->yellow",
+              "clickable_cells_link": "",
+              "col_name": "Power on Hours",
+              "decimals": 2,
+              "delimiter": "|",
+              "displayTemplate": "_value_",
+              "defaultBGColor": "",
+              "defaultTextColor": "",
+              "enable_bgColor": false,
+              "enable_bgColor_overrides": false,
+              "enable_textColor": false,
+              "enable_textColor_overrides": false,
+              "enable_clickable_cells": false,
+              "enable_time_based_thresholds": false,
+              "enable_transform": false,
+              "enable_transform_overrides": false,
+              "filter": {
+                "value_above": "",
+                "value_below": ""
+              },
+              "format": "h",
+              "name": "Power Hours",
+              "null_color": "darkred",
+              "null_textcolor": "black",
+              "null_value": "No data",
+              "pattern": "PowerHours.*$",
+              "row_name": "_0_",
+              "thresholds": "70,90",
+              "time_based_thresholds": [],
+              "transform_values": "_value_|_value_|_value_",
+              "transform_values_overrides": "0->down|1->up",
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+              "valueName": "current"
+            },
+            {
+              "row_col_wrapper": "_",
+              "bgColors": "green|orange|red",
+              "bgColors_overrides": "0->green|2->red|1->yellow",
+              "textColors": "green|orange|red",
+              "textColors_overrides": "0->red|2->green|1->yellow",
+              "clickable_cells_link": "",
+              "col_name": "Load Cycles",
+              "decimals": "0",
+              "delimiter": "|",
+              "displayTemplate": "_value_",
+              "defaultBGColor": "",
+              "defaultTextColor": "",
+              "enable_bgColor": false,
+              "enable_bgColor_overrides": false,
+              "enable_textColor": true,
+              "enable_textColor_overrides": false,
+              "enable_clickable_cells": false,
+              "enable_time_based_thresholds": false,
+              "enable_transform": false,
+              "enable_transform_overrides": false,
+              "filter": {
+                "value_above": "",
+                "value_below": ""
+              },
+              "format": "string",
+              "name": "Load Cycles",
+              "null_color": "darkred",
+              "null_textcolor": "black",
+              "null_value": "No data",
+              "pattern": "LoadCy.*$",
+              "row_name": "_0_",
+              "thresholds": "20000,50000",
+              "time_based_thresholds": [],
+              "transform_values": "_value_|_value_|_value_",
+              "transform_values_overrides": "0->down|1->up",
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+              "valueName": "current"
+            }
+          ],
+          "pluginVersion": "7.3.1",
+          "row_col_wrapper": "_",
+          "sorting_props": {
+            "col_index": -1,
+            "direction": "desc"
+          },
+          "targets": [
+            {
+              "expr": "max(smartmon_power_cycle_count_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number)",
+              "interval": "",
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | PowerCycle",
+              "refId": "B"
+            },
+            {
+              "expr": "max(smartmon_power_on_hours_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number)",
+              "interval": "",
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | PowerHours",
+              "refId": "A"
+            },
+            {
+              "expr": "max(smartmon_load_cycle_count_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number)",
+              "interval": "",
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | LoadCycles",
+              "refId": "C"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Disk Lifetime",
+          "transformations": [],
+          "type": "yesoreyeram-boomtable-panel"
+        },
+        {
+          "activePatternIndex": -3,
+          "datasource": "$SELECT_datasource",
+          "debug_mode": false,
+          "defaultPattern": {
+            "row_col_wrapper": "_",
+            "bgColors": "green|orange|red",
+            "bgColors_overrides": "0->green|2->red|1->yellow",
+            "textColors": "red|orange|green",
+            "textColors_overrides": "0->red|2->green|1->yellow",
+            "clickable_cells_link": "",
+            "col_name": "Value",
+            "decimals": 2,
+            "delimiter": "|",
+            "displayTemplate": "_value_",
+            "defaultBGColor": "transparent",
+            "defaultTextColor": "",
+            "enable_bgColor": false,
+            "enable_bgColor_overrides": false,
+            "enable_textColor": false,
+            "enable_textColor_overrides": false,
+            "enable_clickable_cells": false,
+            "enable_time_based_thresholds": false,
+            "enable_transform": false,
+            "enable_transform_overrides": false,
+            "filter": {
+              "value_above": "",
+              "value_below": ""
+            },
+            "format": "short",
+            "name": "Default Pattern",
+            "null_color": "darkred",
+            "null_textcolor": "black",
+            "null_value": "No data",
+            "pattern": "*",
+            "row_name": "_series_",
+            "thresholds": "70,90",
+            "time_based_thresholds": [],
+            "transform_values": "_value_|_value_|_value_",
+            "transform_values_overrides": "0->down|1->up",
+            "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+            "valueName": "max"
+          },
+          "default_title_for_rows": "Device",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "align": null,
+                "filterable": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 14
+          },
+          "hide_first_column": false,
+          "id": 185,
+          "patterns": [
+            {
+              "row_col_wrapper": "_",
+              "bgColors": "green|orange|red",
+              "bgColors_overrides": "0->green|2->red|1->yellow",
+              "textColors": "red|orange|green",
+              "textColors_overrides": "0->red|2->green|1->yellow",
+              "clickable_cells_link": "",
+              "col_name": "_1_",
+              "decimals": 2,
+              "delimiter": "|",
+              "displayTemplate": "_value_",
+              "defaultBGColor": "",
+              "defaultTextColor": "",
+              "enable_bgColor": false,
+              "enable_bgColor_overrides": false,
+              "enable_textColor": false,
+              "enable_textColor_overrides": false,
+              "enable_clickable_cells": false,
+              "enable_time_based_thresholds": false,
+              "enable_transform": false,
+              "enable_transform_overrides": false,
+              "filter": {
+                "value_above": "",
+                "value_below": ""
+              },
+              "format": "bytes",
+              "name": "Written",
+              "null_color": "darkred",
+              "null_textcolor": "black",
+              "null_value": "No data",
+              "pattern": "Written.*$",
+              "row_name": "_0_",
+              "thresholds": "70,90",
+              "time_based_thresholds": [],
+              "transform_values": "_value_|_value_|_value_",
+              "transform_values_overrides": "0->down|1->up",
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+              "valueName": "current"
+            },
+            {
+              "row_col_wrapper": "_",
+              "bgColors": "green|orange|red",
+              "bgColors_overrides": "0->green|2->red|1->yellow",
+              "textColors": "red|orange|green",
+              "textColors_overrides": "0->red|2->green|1->yellow",
+              "clickable_cells_link": "",
+              "col_name": "_1_",
+              "decimals": 2,
+              "delimiter": "|",
+              "displayTemplate": "_value_",
+              "defaultBGColor": "",
+              "defaultTextColor": "",
+              "enable_bgColor": false,
+              "enable_bgColor_overrides": false,
+              "enable_textColor": false,
+              "enable_textColor_overrides": false,
+              "enable_clickable_cells": false,
+              "enable_time_based_thresholds": false,
+              "enable_transform": false,
+              "enable_transform_overrides": false,
+              "filter": {
+                "value_above": "",
+                "value_below": ""
+              },
+              "format": "bytes",
+              "name": "Read",
+              "null_color": "darkred",
+              "null_textcolor": "black",
+              "null_value": "No data",
+              "pattern": "Read.*$",
+              "row_name": "_0_",
+              "thresholds": "70,90",
+              "time_based_thresholds": [],
+              "transform_values": "_value_|_value_|_value_",
+              "transform_values_overrides": "0->down|1->up",
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+              "valueName": "current"
+            },
+            {
+              "row_col_wrapper": "_",
+              "bgColors": "green|orange|red",
+              "bgColors_overrides": "0->green|2->red|1->yellow",
+              "textColors": "green|orange|red",
+              "textColors_overrides": "0->red|2->green|1->yellow",
+              "clickable_cells_link": "",
+              "col_name": "_1_",
+              "decimals": "0",
+              "delimiter": "|",
+              "displayTemplate": "_value_",
+              "defaultBGColor": "",
+              "defaultTextColor": "",
+              "enable_bgColor": false,
+              "enable_bgColor_overrides": false,
+              "enable_textColor": true,
+              "enable_textColor_overrides": false,
+              "enable_clickable_cells": false,
+              "enable_time_based_thresholds": false,
+              "enable_transform": false,
+              "enable_transform_overrides": false,
+              "filter": {
+                "value_above": "",
+                "value_below": ""
+              },
+              "format": "percent",
+              "name": "Wear",
+              "null_color": "darkred",
+              "null_textcolor": "black",
+              "null_value": "No data",
+              "pattern": "Wear.*$",
+              "row_name": "_0_",
+              "thresholds": "75,90",
+              "time_based_thresholds": [],
+              "transform_values": "_value_|_value_|_value_",
+              "transform_values_overrides": "0->down|1->up",
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+              "valueName": "current"
+            }
+          ],
+          "pluginVersion": "7.3.1",
+          "row_col_wrapper": "_",
+          "sorting_props": {
+            "col_index": -1,
+            "direction": "desc"
+          },
+          "targets": [
+            {
+              "expr": " (smartmon_total_lbas_written_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"} * on(disk,instance,device_model,serial_number) smartmon_device_sector_size_logical)",
+              "interval": "",
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | Total Written",
+              "refId": "A"
+            },
+            {
+              "expr": " (smartmon_total_lbas_read_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"} * on(disk,instance,device_model,serial_number) smartmon_device_sector_size_logical)",
+              "interval": "",
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | Total Read",
+              "refId": "B"
+            },
+            {
+              "expr": "(100 - smartmon_wear_leveling_count_value {instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"})",
+              "interval": "",
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | Wear Level",
+              "refId": "C"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Data Read/Written",
+          "transformations": [],
+          "type": "yesoreyeram-boomtable-panel"
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$SELECT_datasource",
+          "decimals": 0,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
+          "fill": 1,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 14
+          },
+          "hiddenSeries": false,
+          "id": 181,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "hideEmpty": false,
+            "hideZero": true,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": true,
+            "sort": "current",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.3.1",
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": true,
+          "targets": [
+            {
+              "expr": "avg(smartmon_raw_read_error_rate_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number) > 0",
+              "format": "time_series",
+              "hide": true,
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}})",
+              "refId": "A"
+            },
+            {
+              "expr": "avg(smartmon_reallocated_sector_ct_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number) > 0",
+              "interval": "",
+              "legendFormat": "Reallocated Sectors (S/N: {{serial_number}})",
+              "refId": "B"
+            },
+            {
+              "expr": "avg(smartmon_seek_error_rate_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number) > 0",
+              "hide": true,
+              "interval": "",
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}})",
+              "refId": "C"
+            },
+            {
+              "expr": "avg(smartmon_reported_uncorrect_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number) > 0",
+              "interval": "",
+              "legendFormat": "Uncorrectable Errors (S/N: {{serial_number}})",
+              "refId": "D"
+            }
+          ],
           "thresholds": [],
-          "type": "string",
-          "unit": "short"
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Disk Errors",
+          "tooltip": {
+            "shared": true,
+            "sort": 2,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:2499",
+              "decimals": null,
+              "format": "string",
+              "label": "Errors",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:2500",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "datasource": "$SELECT_datasource",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {},
+              "mappings": [],
+              "max": 100,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "#EAB839",
+                    "value": 75
+                  },
+                  {
+                    "color": "red",
+                    "value": 90
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 0,
+            "y": 19
+          },
+          "id": 171,
+          "links": [],
+          "options": {
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "last"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
+          "pluginVersion": "7.3.1",
+          "targets": [
+            {
+              "expr": "sort_desc(100-smartmon_wear_leveling_count_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"})",
+              "format": "time_series",
+              "instant": true,
+              "interval": "",
+              "intervalFactor": 1,
+              "legendFormat": "{{ disk }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "SSD Wear Level",
+          "type": "gauge"
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$SELECT_datasource",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 12,
+            "y": 19
+          },
+          "hiddenSeries": false,
+          "id": 175,
+          "interval": "",
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "sideWidth": null,
+            "sort": "current",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "connected",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.3.1",
+          "pointradius": 1,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "avg(smartmon_airflow_temperature_cel_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number)",
+              "format": "time_series",
+              "hide": false,
+              "instant": false,
+              "interval": "1m",
+              "intervalFactor": 1,
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}})",
+              "refId": "B"
+            }
+          ],
+          "thresholds": [
+            {
+              "$$hashKey": "object:7717",
+              "colorMode": "warning",
+              "fill": false,
+              "line": true,
+              "op": "gt",
+              "value": 35,
+              "yaxis": "left"
+            },
+            {
+              "$$hashKey": "object:7723",
+              "colorMode": "critical",
+              "fill": false,
+              "line": true,
+              "op": "gt",
+              "value": 45,
+              "yaxis": "left"
+            }
+          ],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Disk Temperature",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:1067",
+              "decimals": null,
+              "format": "celsius",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:1068",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         }
       ],
-      "targets": [
-        {
-          "expr": "max(smartmon_power_on_hours_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number)",
-          "format": "table",
-          "instant": true,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "Power On Time",
-          "refId": "A"
-        },
-        {
-          "expr": "max(smartmon_load_cycle_count_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number)",
-          "format": "table",
-          "instant": true,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "Load Cycles",
-          "refId": "B"
-        },
-        {
-          "expr": "max(smartmon_power_on_hours_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number)",
-          "interval": "",
-          "legendFormat": "",
-          "refId": "C"
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Disk Lifetime",
-      "transform": "table",
-      "type": "table-old"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$SELECT_datasource",
-      "decimals": 0,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "links": []
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 22
-      },
-      "hiddenSeries": false,
-      "id": 181,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "hideEmpty": false,
-        "hideZero": true,
-        "max": false,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.1",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": true,
-      "targets": [
-        {
-          "expr": "avg(smartmon_raw_read_error_rate_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number) > 0",
-          "format": "time_series",
-          "hide": true,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "{{device_model}} (S/N: {{serial_number}})",
-          "refId": "A"
-        },
-        {
-          "expr": "avg(smartmon_reallocated_sector_ct_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number) > 0",
-          "interval": "",
-          "legendFormat": "Reallocated Sectors (S/N: {{serial_number}})",
-          "refId": "B"
-        },
-        {
-          "expr": "avg(smartmon_seek_error_rate_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number) > 0",
-          "hide": true,
-          "interval": "",
-          "legendFormat": "{{device_model}} (S/N: {{serial_number}})",
-          "refId": "C"
-        },
-        {
-          "expr": "avg(smartmon_reported_uncorrect_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number) > 0",
-          "interval": "",
-          "legendFormat": "Uncorrected Errors (S/N: {{serial_number}})",
-          "refId": "D"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Raw Error Read Rate",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:2499",
-          "decimals": null,
-          "format": "string",
-          "label": "Errors",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:2500",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "title": "Smartmon",
+      "type": "row"
     }
   ],
   "refresh": "1m",
@@ -3283,9 +3417,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": "DS718",
-          "value": "DS718"
+          "selected": true
         },
         "datasource": "$SELECT_datasource",
         "definition": "label_values(node_uname_info, job)",
@@ -3310,7 +3442,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": false
         },
         "datasource": "$SELECT_datasource",
         "definition": "label_values(node_uname_info{job=\"$SELECT_job\"}, instance)",
@@ -3335,7 +3467,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": false
         },
         "datasource": "$SELECT_datasource",
         "definition": "label_values(container_cpu_user_seconds_total{job=~\"$SELECT_job\"}, instance)",
@@ -3391,12 +3523,12 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "RasPi Supervision",
   "uid": "m3BOcCiRkx",
-  "version": 37
+  "version": 44
 }

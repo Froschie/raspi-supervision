@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": 215,
-  "iteration": 1609860578698,
+  "iteration": 1609946723935,
   "links": [],
   "panels": [
     {
@@ -1826,7 +1826,7 @@
       "type": "row"
     },
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -1835,555 +1835,553 @@
         "y": 6
       },
       "id": 157,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "$SELECT_datasource",
-          "editable": true,
-          "error": false,
-          "fieldConfig": {
-            "defaults": {
-              "custom": {},
-              "links": []
-            },
-            "overrides": []
-          },
-          "fill": 5,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 10,
-            "w": 12,
-            "x": 0,
-            "y": 39
-          },
-          "hiddenSeries": false,
-          "id": 1,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.3.1",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": true,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "sum(rate(container_cpu_usage_seconds_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name) * 100",
-              "format": "time_series",
-              "hide": false,
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "metric": "container_cp",
-              "refId": "F",
-              "step": 2
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "CPU Usage per Container",
-          "tooltip": {
-            "msResolution": true,
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:3421",
-              "format": "percent",
-              "label": "",
-              "logBase": 1,
-              "max": null,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:3422",
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "$SELECT_datasource",
-          "editable": true,
-          "error": false,
-          "fieldConfig": {
-            "defaults": {
-              "custom": {},
-              "links": []
-            },
-            "overrides": []
-          },
-          "fill": 3,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 10,
-            "w": 12,
-            "x": 12,
-            "y": 39
-          },
-          "hiddenSeries": false,
-          "id": 10,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.3.1",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": true,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "sum(container_memory_rss{instance=~\"$SELECT_cadvisor\",name=~\".+\"}) by (name)",
-              "hide": false,
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "refId": "A",
-              "step": 2
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Memory Usage per Container",
-          "tooltip": {
-            "msResolution": true,
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:2302",
-              "format": "bytes",
-              "label": "",
-              "logBase": 1,
-              "max": null,
-              "min": "0",
-              "show": true
-            },
-            {
-              "$$hashKey": "object:2303",
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "$SELECT_datasource",
-          "editable": true,
-          "error": false,
-          "fieldConfig": {
-            "defaults": {
-              "custom": {},
-              "links": []
-            },
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 49
-          },
-          "hiddenSeries": false,
-          "id": 8,
-          "isNew": true,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.3.1",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "sum(rate(container_network_receive_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)*8",
-              "hide": false,
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "refId": "A",
-              "step": 2
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Received Network Traffic per Container",
-          "tooltip": {
-            "msResolution": true,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:3502",
-              "format": "bps",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:3503",
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "$SELECT_datasource",
-          "editable": true,
-          "error": false,
-          "fieldConfig": {
-            "defaults": {
-              "custom": {},
-              "links": []
-            },
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "grid": {},
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 49
-          },
-          "hiddenSeries": false,
-          "id": 9,
-          "isNew": true,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "hideEmpty": false,
-            "hideZero": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "null as zero",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.3.1",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "sum(rate(container_network_transmit_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)*8",
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "refId": "A",
-              "step": 2
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Sent Network Traffic per Container",
-          "tooltip": {
-            "msResolution": true,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:3587",
-              "format": "bps",
-              "label": "",
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "$$hashKey": "object:3588",
-              "format": "short",
-              "label": "",
-              "logBase": 10,
-              "max": 8,
-              "min": 0,
-              "show": false
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "columns": [
-            {
-              "$$hashKey": "object:867",
-              "text": "Avg",
-              "value": "avg"
-            }
-          ],
-          "datasource": "$SELECT_datasource",
-          "editable": true,
-          "error": false,
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fontSize": "100%",
-          "gridPos": {
-            "h": 7,
-            "w": 12,
-            "x": 0,
-            "y": 57
-          },
-          "hideTimeOverride": false,
-          "id": 158,
-          "isNew": true,
-          "links": [],
-          "pageSize": 100,
-          "scroll": true,
-          "showHeader": true,
-          "sort": {
-            "col": 0,
-            "desc": true
-          },
-          "styles": [
-            {
-              "$$hashKey": "object:869",
-              "align": "auto",
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "pattern": "Time",
-              "type": "date"
-            },
-            {
-              "$$hashKey": "object:870",
-              "align": "auto",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "decimals": 2,
-              "pattern": "/.*/",
-              "thresholds": [],
-              "type": "number",
-              "unit": "short"
-            }
-          ],
-          "targets": [
-            {
-              "expr": "{instance=~\"$SELECT_cadvisor\"}",
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "cAdvisor Version: {{cadvisorVersion}}",
-              "refId": "A",
-              "step": 2
-            },
-            {
-              "expr": "prometheus_build_info{}",
-              "intervalFactor": 2,
-              "legendFormat": "Prometheus Version: {{version}}",
-              "refId": "B",
-              "step": 2
-            },
-            {
-              "expr": "node_exporter_build_info{instance=~\"$SELECT_cadvisor\"}",
-              "intervalFactor": 2,
-              "legendFormat": "Node-Exporter Version: {{version}}",
-              "refId": "C",
-              "step": 2
-            },
-            {
-              "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
-              "hide": false,
-              "intervalFactor": 2,
-              "legendFormat": "Docker Version: {{dockerVersion}}",
-              "refId": "D",
-              "step": 2
-            },
-            {
-              "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
-              "intervalFactor": 2,
-              "legendFormat": "Host OS Version: {{osVersion}}",
-              "refId": "E",
-              "step": 2
-            },
-            {
-              "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
-              "intervalFactor": 2,
-              "legendFormat": "Host Kernel Version: {{kernelVersion}}",
-              "refId": "F",
-              "step": 2
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Software Versions",
-          "transform": "timeseries_aggregations",
-          "type": "table-old"
-        }
-      ],
+      "panels": [],
       "title": "Cadvisor Basics",
       "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$SELECT_datasource",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 5,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 1,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.1",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(rate(container_cpu_usage_seconds_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name) * 100",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}}",
+          "metric": "container_cp",
+          "refId": "F",
+          "step": 2
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "CPU Usage per Container",
+      "tooltip": {
+        "msResolution": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3421",
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3422",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$SELECT_datasource",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 3,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "isNew": true,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.1",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(container_memory_rss{instance=~\"$SELECT_cadvisor\",name=~\".+\"}) by (name)",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}}",
+          "refId": "A",
+          "step": 2
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Memory Usage per Container",
+      "tooltip": {
+        "msResolution": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:2302",
+          "format": "bytes",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:2303",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$SELECT_datasource",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 17
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.1",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(rate(container_network_receive_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)*8",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}}",
+          "refId": "A",
+          "step": 2
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Received Network Traffic per Container",
+      "tooltip": {
+        "msResolution": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3502",
+          "format": "bps",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3503",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$SELECT_datasource",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "hiddenSeries": false,
+      "id": 9,
+      "isNew": true,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.3.1",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(rate(container_network_transmit_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)*8",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "{{name}}",
+          "refId": "A",
+          "step": 2
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Sent Network Traffic per Container",
+      "tooltip": {
+        "msResolution": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3587",
+          "format": "bps",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3588",
+          "format": "short",
+          "label": "",
+          "logBase": 10,
+          "max": 8,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "columns": [
+        {
+          "$$hashKey": "object:138",
+          "text": "Avg",
+          "value": "avg"
+        }
+      ],
+      "datasource": "$SELECT_datasource",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 25
+      },
+      "hideTimeOverride": false,
+      "id": 192,
+      "isNew": true,
+      "links": [],
+      "pageSize": 100,
+      "scroll": true,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": true
+      },
+      "styles": [
+        {
+          "$$hashKey": "object:140",
+          "align": "auto",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "Time",
+          "type": "date"
+        },
+        {
+          "$$hashKey": "object:141",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 2,
+          "pattern": "/.*/",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short"
+        }
+      ],
+      "targets": [
+        {
+          "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
+          "intervalFactor": 2,
+          "legendFormat": "cAdvisor Version: {{cadvisorVersion}}",
+          "refId": "A",
+          "step": 2
+        },
+        {
+          "expr": "prometheus_build_info{}",
+          "intervalFactor": 2,
+          "legendFormat": "Prometheus Version: {{version}}",
+          "refId": "B",
+          "step": 2
+        },
+        {
+          "expr": "node_exporter_build_info{instance=~\"$SELECT_cadvisor\"}",
+          "intervalFactor": 2,
+          "legendFormat": "Node-Exporter Version: {{version}}",
+          "refId": "C",
+          "step": 2
+        },
+        {
+          "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
+          "hide": false,
+          "intervalFactor": 2,
+          "legendFormat": "Docker Version: {{dockerVersion}}",
+          "refId": "D",
+          "step": 2
+        },
+        {
+          "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
+          "intervalFactor": 2,
+          "legendFormat": "Host OS Version: {{osVersion}}",
+          "refId": "E",
+          "step": 2
+        },
+        {
+          "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
+          "intervalFactor": 2,
+          "legendFormat": "Host Kernel Version: {{kernelVersion}}",
+          "refId": "F",
+          "step": 2
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Software Versions",
+      "transform": "timeseries_aggregations",
+      "type": "table-old"
     },
     {
       "collapsed": true,
@@ -2392,7 +2390,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 32
       },
       "id": 163,
       "panels": [],
@@ -2406,7 +2404,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 33
       },
       "id": 167,
       "panels": [
@@ -2425,7 +2423,7 @@
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 9
+            "y": 23
           },
           "id": 190,
           "links": [],
@@ -2609,23 +2607,20 @@
           "datasource": "$SELECT_datasource",
           "debug_mode": false,
           "defaultPattern": {
-            "row_col_wrapper": "_",
             "bgColors": "green|orange|red",
             "bgColors_overrides": "0->green|2->red|1->yellow",
-            "textColors": "red|orange|green",
-            "textColors_overrides": "0->red|2->green|1->yellow",
             "clickable_cells_link": "",
             "col_name": "Value",
             "decimals": 2,
-            "delimiter": "|",
-            "displayTemplate": "_value_",
             "defaultBGColor": "transparent",
             "defaultTextColor": "",
+            "delimiter": "|",
+            "displayTemplate": "_value_",
             "enable_bgColor": false,
             "enable_bgColor_overrides": false,
+            "enable_clickable_cells": false,
             "enable_textColor": false,
             "enable_textColor_overrides": false,
-            "enable_clickable_cells": false,
             "enable_time_based_thresholds": false,
             "enable_transform": false,
             "enable_transform_overrides": false,
@@ -2639,12 +2634,15 @@
             "null_textcolor": "black",
             "null_value": "No data",
             "pattern": "*",
+            "row_col_wrapper": "_",
             "row_name": "_series_",
+            "textColors": "red|orange|green",
+            "textColors_overrides": "0->red|2->green|1->yellow",
             "thresholds": "70,90",
             "time_based_thresholds": [],
+            "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
             "transform_values": "_value_|_value_|_value_",
             "transform_values_overrides": "0->down|1->up",
-            "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
             "valueName": "max"
           },
           "default_title_for_rows": "Device",
@@ -2675,29 +2673,26 @@
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 9
+            "y": 23
           },
           "hide_first_column": false,
           "id": 186,
           "patterns": [
             {
-              "row_col_wrapper": "_",
               "bgColors": "green|orange|red",
               "bgColors_overrides": "0->green|2->red|1->yellow",
-              "textColors": "red|orange|green",
-              "textColors_overrides": "0->red|2->green|1->yellow",
               "clickable_cells_link": "",
               "col_name": "Power Cycles",
               "decimals": 2,
-              "delimiter": "|",
-              "displayTemplate": "_value_",
               "defaultBGColor": "",
               "defaultTextColor": "",
+              "delimiter": "|",
+              "displayTemplate": "_value_",
               "enable_bgColor": false,
               "enable_bgColor_overrides": false,
+              "enable_clickable_cells": false,
               "enable_textColor": false,
               "enable_textColor_overrides": false,
-              "enable_clickable_cells": false,
               "enable_time_based_thresholds": false,
               "enable_transform": false,
               "enable_transform_overrides": false,
@@ -2711,32 +2706,32 @@
               "null_textcolor": "black",
               "null_value": "No data",
               "pattern": "PowerC.*$",
+              "row_col_wrapper": "_",
               "row_name": "_0_",
+              "textColors": "red|orange|green",
+              "textColors_overrides": "0->red|2->green|1->yellow",
               "thresholds": "70,90",
               "time_based_thresholds": [],
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "transform_values": "_value_|_value_|_value_",
               "transform_values_overrides": "0->down|1->up",
-              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "valueName": "current"
             },
             {
-              "row_col_wrapper": "_",
               "bgColors": "green|orange|red",
               "bgColors_overrides": "0->green|2->red|1->yellow",
-              "textColors": "red|orange|green",
-              "textColors_overrides": "0->red|2->green|1->yellow",
               "clickable_cells_link": "",
               "col_name": "Power on Hours",
               "decimals": 2,
-              "delimiter": "|",
-              "displayTemplate": "_value_",
               "defaultBGColor": "",
               "defaultTextColor": "",
+              "delimiter": "|",
+              "displayTemplate": "_value_",
               "enable_bgColor": false,
               "enable_bgColor_overrides": false,
+              "enable_clickable_cells": false,
               "enable_textColor": false,
               "enable_textColor_overrides": false,
-              "enable_clickable_cells": false,
               "enable_time_based_thresholds": false,
               "enable_transform": false,
               "enable_transform_overrides": false,
@@ -2750,32 +2745,32 @@
               "null_textcolor": "black",
               "null_value": "No data",
               "pattern": "PowerHours.*$",
+              "row_col_wrapper": "_",
               "row_name": "_0_",
+              "textColors": "red|orange|green",
+              "textColors_overrides": "0->red|2->green|1->yellow",
               "thresholds": "70,90",
               "time_based_thresholds": [],
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "transform_values": "_value_|_value_|_value_",
               "transform_values_overrides": "0->down|1->up",
-              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "valueName": "current"
             },
             {
-              "row_col_wrapper": "_",
               "bgColors": "green|orange|red",
               "bgColors_overrides": "0->green|2->red|1->yellow",
-              "textColors": "green|orange|red",
-              "textColors_overrides": "0->red|2->green|1->yellow",
               "clickable_cells_link": "",
               "col_name": "Load Cycles",
               "decimals": "0",
-              "delimiter": "|",
-              "displayTemplate": "_value_",
               "defaultBGColor": "",
               "defaultTextColor": "",
+              "delimiter": "|",
+              "displayTemplate": "_value_",
               "enable_bgColor": false,
               "enable_bgColor_overrides": false,
+              "enable_clickable_cells": false,
               "enable_textColor": true,
               "enable_textColor_overrides": false,
-              "enable_clickable_cells": false,
               "enable_time_based_thresholds": false,
               "enable_transform": false,
               "enable_transform_overrides": false,
@@ -2789,12 +2784,15 @@
               "null_textcolor": "black",
               "null_value": "No data",
               "pattern": "LoadCy.*$",
+              "row_col_wrapper": "_",
               "row_name": "_0_",
+              "textColors": "green|orange|red",
+              "textColors_overrides": "0->red|2->green|1->yellow",
               "thresholds": "20000,50000",
               "time_based_thresholds": [],
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "transform_values": "_value_|_value_|_value_",
               "transform_values_overrides": "0->down|1->up",
-              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "valueName": "current"
             }
           ],
@@ -2835,23 +2833,20 @@
           "datasource": "$SELECT_datasource",
           "debug_mode": false,
           "defaultPattern": {
-            "row_col_wrapper": "_",
             "bgColors": "green|orange|red",
             "bgColors_overrides": "0->green|2->red|1->yellow",
-            "textColors": "red|orange|green",
-            "textColors_overrides": "0->red|2->green|1->yellow",
             "clickable_cells_link": "",
             "col_name": "Value",
             "decimals": 2,
-            "delimiter": "|",
-            "displayTemplate": "_value_",
             "defaultBGColor": "transparent",
             "defaultTextColor": "",
+            "delimiter": "|",
+            "displayTemplate": "_value_",
             "enable_bgColor": false,
             "enable_bgColor_overrides": false,
+            "enable_clickable_cells": false,
             "enable_textColor": false,
             "enable_textColor_overrides": false,
-            "enable_clickable_cells": false,
             "enable_time_based_thresholds": false,
             "enable_transform": false,
             "enable_transform_overrides": false,
@@ -2865,12 +2860,15 @@
             "null_textcolor": "black",
             "null_value": "No data",
             "pattern": "*",
+            "row_col_wrapper": "_",
             "row_name": "_series_",
+            "textColors": "red|orange|green",
+            "textColors_overrides": "0->red|2->green|1->yellow",
             "thresholds": "70,90",
             "time_based_thresholds": [],
+            "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
             "transform_values": "_value_|_value_|_value_",
             "transform_values_overrides": "0->down|1->up",
-            "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
             "valueName": "max"
           },
           "default_title_for_rows": "Device",
@@ -2901,29 +2899,26 @@
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 14
+            "y": 28
           },
           "hide_first_column": false,
           "id": 185,
           "patterns": [
             {
-              "row_col_wrapper": "_",
               "bgColors": "green|orange|red",
               "bgColors_overrides": "0->green|2->red|1->yellow",
-              "textColors": "red|orange|green",
-              "textColors_overrides": "0->red|2->green|1->yellow",
               "clickable_cells_link": "",
               "col_name": "_1_",
               "decimals": 2,
-              "delimiter": "|",
-              "displayTemplate": "_value_",
               "defaultBGColor": "",
               "defaultTextColor": "",
+              "delimiter": "|",
+              "displayTemplate": "_value_",
               "enable_bgColor": false,
               "enable_bgColor_overrides": false,
+              "enable_clickable_cells": false,
               "enable_textColor": false,
               "enable_textColor_overrides": false,
-              "enable_clickable_cells": false,
               "enable_time_based_thresholds": false,
               "enable_transform": false,
               "enable_transform_overrides": false,
@@ -2937,32 +2932,32 @@
               "null_textcolor": "black",
               "null_value": "No data",
               "pattern": "Written.*$",
+              "row_col_wrapper": "_",
               "row_name": "_0_",
+              "textColors": "red|orange|green",
+              "textColors_overrides": "0->red|2->green|1->yellow",
               "thresholds": "70,90",
               "time_based_thresholds": [],
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "transform_values": "_value_|_value_|_value_",
               "transform_values_overrides": "0->down|1->up",
-              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "valueName": "current"
             },
             {
-              "row_col_wrapper": "_",
               "bgColors": "green|orange|red",
               "bgColors_overrides": "0->green|2->red|1->yellow",
-              "textColors": "red|orange|green",
-              "textColors_overrides": "0->red|2->green|1->yellow",
               "clickable_cells_link": "",
               "col_name": "_1_",
               "decimals": 2,
-              "delimiter": "|",
-              "displayTemplate": "_value_",
               "defaultBGColor": "",
               "defaultTextColor": "",
+              "delimiter": "|",
+              "displayTemplate": "_value_",
               "enable_bgColor": false,
               "enable_bgColor_overrides": false,
+              "enable_clickable_cells": false,
               "enable_textColor": false,
               "enable_textColor_overrides": false,
-              "enable_clickable_cells": false,
               "enable_time_based_thresholds": false,
               "enable_transform": false,
               "enable_transform_overrides": false,
@@ -2976,32 +2971,32 @@
               "null_textcolor": "black",
               "null_value": "No data",
               "pattern": "Read.*$",
+              "row_col_wrapper": "_",
               "row_name": "_0_",
+              "textColors": "red|orange|green",
+              "textColors_overrides": "0->red|2->green|1->yellow",
               "thresholds": "70,90",
               "time_based_thresholds": [],
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "transform_values": "_value_|_value_|_value_",
               "transform_values_overrides": "0->down|1->up",
-              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "valueName": "current"
             },
             {
-              "row_col_wrapper": "_",
               "bgColors": "green|orange|red",
               "bgColors_overrides": "0->green|2->red|1->yellow",
-              "textColors": "green|orange|red",
-              "textColors_overrides": "0->red|2->green|1->yellow",
               "clickable_cells_link": "",
               "col_name": "_1_",
               "decimals": "0",
-              "delimiter": "|",
-              "displayTemplate": "_value_",
               "defaultBGColor": "",
               "defaultTextColor": "",
+              "delimiter": "|",
+              "displayTemplate": "_value_",
               "enable_bgColor": false,
               "enable_bgColor_overrides": false,
+              "enable_clickable_cells": false,
               "enable_textColor": true,
               "enable_textColor_overrides": false,
-              "enable_clickable_cells": false,
               "enable_time_based_thresholds": false,
               "enable_transform": false,
               "enable_transform_overrides": false,
@@ -3015,12 +3010,15 @@
               "null_textcolor": "black",
               "null_value": "No data",
               "pattern": "Wear.*$",
+              "row_col_wrapper": "_",
               "row_name": "_0_",
+              "textColors": "green|orange|red",
+              "textColors_overrides": "0->red|2->green|1->yellow",
               "thresholds": "75,90",
               "time_based_thresholds": [],
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "transform_values": "_value_|_value_|_value_",
               "transform_values_overrides": "0->down|1->up",
-              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
               "valueName": "current"
             }
           ],
@@ -3076,7 +3074,7 @@
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 14
+            "y": 28
           },
           "hiddenSeries": false,
           "id": 181,
@@ -3221,7 +3219,7 @@
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 19
+            "y": 33
           },
           "id": 171,
           "links": [],
@@ -3273,7 +3271,7 @@
             "h": 7,
             "w": 12,
             "x": 12,
-            "y": 19
+            "y": 33
           },
           "hiddenSeries": false,
           "id": 175,
@@ -3417,7 +3415,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": true
+          "selected": false,
+          "text": "raspi4",
+          "value": "raspi4"
         },
         "datasource": "$SELECT_datasource",
         "definition": "label_values(node_uname_info, job)",
@@ -3530,5 +3530,5 @@
   "timezone": "",
   "title": "RasPi Supervision",
   "uid": "m3BOcCiRkx",
-  "version": 44
+  "version": 45
 }

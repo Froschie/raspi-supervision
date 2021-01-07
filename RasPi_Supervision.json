@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": 215,
-  "iteration": 1609946723935,
+  "iteration": 1610044581255,
   "links": [],
   "panels": [
     {
@@ -843,7 +843,7 @@
         },
         "overrides": []
       },
-      "format": "bytes",
+      "format": "string",
       "gauge": {
         "maxValue": 100,
         "minValue": 0,
@@ -863,10 +863,12 @@
       "mappingType": 1,
       "mappingTypes": [
         {
+          "$$hashKey": "object:193",
           "name": "value to text",
           "value": 1
         },
         {
+          "$$hashKey": "object:194",
           "name": "range to text",
           "value": 2
         }
@@ -895,18 +897,21 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "node_memory_SwapTotal_bytes{instance=\"$SELECT_nodeexporter\",job=\"$SELECT_job\"}",
+          "expr": "count(rate(container_last_seen{job=\"$SELECT_job\", name!=\"\"}[5m]))",
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": "",
           "refId": "A",
           "step": 900
         }
       ],
       "thresholds": "",
-      "title": "SWAP Total",
+      "title": "Containers",
       "type": "singlestat",
       "valueFontSize": "50%",
       "valueMaps": [
         {
+          "$$hashKey": "object:196",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -1583,7 +1588,7 @@
             "h": 10,
             "w": 12,
             "x": 0,
-            "y": 20
+            "y": 6
           },
           "hiddenSeries": false,
           "id": 165,
@@ -1636,6 +1641,7 @@
             },
             {
               "expr": "node_hwmon_temp_crit_celsius{instance=\"$SELECT_nodeexporter\",job=\"$SELECT_job\"}",
+              "hide": true,
               "interval": "",
               "intervalFactor": 2,
               "legendFormat": "{{ chip }} {{ sensor }} Critical",
@@ -1695,6 +1701,493 @@
         },
         {
           "aliasColors": {
+            "io time": "#890F02"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$SELECT_datasource",
+          "decimals": 3,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
+          "fill": 4,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 6
+          },
+          "hiddenSeries": false,
+          "id": 127,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": null,
+            "sortDesc": null,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 6,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.3.1",
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "irate(node_disk_io_time_seconds_total{instance=\"$SELECT_nodeexporter\",job=\"$SELECT_job\",device!~\".*p[0-9]]*\",device!~\"zram.*\",device!~\"synoboot.*\",device!~\"isda.*\",device!~\"md.*\",device!~\"mtdblock.*\"} [5m])",
+              "format": "time_series",
+              "hide": false,
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "{{device}} - Time spent doing I/Os",
+              "refId": "A",
+              "step": 240
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "I/O Usage Times",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": false,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:2432",
+              "format": "s",
+              "label": "time",
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "$$hashKey": "object:2433",
+              "format": "s",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$SELECT_datasource",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
+          "fill": 2,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 11,
+            "w": 12,
+            "x": 0,
+            "y": 16
+          },
+          "hiddenSeries": false,
+          "id": 229,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "hideZero": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 6,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.3.1",
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "$$hashKey": "object:2271",
+              "alias": "/.*Read.*/",
+              "transform": "negative-Y"
+            },
+            {
+              "$$hashKey": "object:2272",
+              "alias": "/.*sda_.*/",
+              "color": "#7EB26D"
+            },
+            {
+              "$$hashKey": "object:2273",
+              "alias": "/.*sdb_.*/",
+              "color": "#EAB839"
+            },
+            {
+              "$$hashKey": "object:2274",
+              "alias": "/.*sdc_.*/",
+              "color": "#6ED0E0"
+            },
+            {
+              "$$hashKey": "object:2275",
+              "alias": "/.*sdd_.*/",
+              "color": "#EF843C"
+            },
+            {
+              "$$hashKey": "object:2276",
+              "alias": "/.*sde_.*/",
+              "color": "#E24D42"
+            },
+            {
+              "$$hashKey": "object:2277",
+              "alias": "/.*sda1.*/",
+              "color": "#584477"
+            },
+            {
+              "$$hashKey": "object:2278",
+              "alias": "/.*sda2_.*/",
+              "color": "#BA43A9"
+            },
+            {
+              "$$hashKey": "object:2279",
+              "alias": "/.*sda3_.*/",
+              "color": "#F4D598"
+            },
+            {
+              "$$hashKey": "object:2280",
+              "alias": "/.*sdb1.*/",
+              "color": "#0A50A1"
+            },
+            {
+              "$$hashKey": "object:2281",
+              "alias": "/.*sdb2.*/",
+              "color": "#BF1B00"
+            },
+            {
+              "$$hashKey": "object:2282",
+              "alias": "/.*sdb2.*/",
+              "color": "#BF1B00"
+            },
+            {
+              "$$hashKey": "object:2283",
+              "alias": "/.*sdb3.*/",
+              "color": "#E0752D"
+            },
+            {
+              "$$hashKey": "object:2284",
+              "alias": "/.*sdc1.*/",
+              "color": "#962D82"
+            },
+            {
+              "$$hashKey": "object:2285",
+              "alias": "/.*sdc2.*/",
+              "color": "#614D93"
+            },
+            {
+              "$$hashKey": "object:2286",
+              "alias": "/.*sdc3.*/",
+              "color": "#9AC48A"
+            },
+            {
+              "$$hashKey": "object:2287",
+              "alias": "/.*sdd1.*/",
+              "color": "#65C5DB"
+            },
+            {
+              "$$hashKey": "object:2288",
+              "alias": "/.*sdd2.*/",
+              "color": "#F9934E"
+            },
+            {
+              "$$hashKey": "object:2289",
+              "alias": "/.*sdd3.*/",
+              "color": "#EA6460"
+            },
+            {
+              "$$hashKey": "object:2290",
+              "alias": "/.*sde1.*/",
+              "color": "#E0F9D7"
+            },
+            {
+              "$$hashKey": "object:2291",
+              "alias": "/.*sdd2.*/",
+              "color": "#FCEACA"
+            },
+            {
+              "$$hashKey": "object:2292",
+              "alias": "/.*sde3.*/",
+              "color": "#F9E2D2"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "irate(node_disk_reads_completed_total{instance=\"$SELECT_nodeexporter\",job=\"$SELECT_job\",device!~\".*p[0-9]]*\",device!~\"zram.*\",device!~\"synoboot.*\",device!~\"isda.*\",device!~\"md.*\",device!~\"mtdblock.*\"}[5m])",
+              "interval": "",
+              "intervalFactor": 4,
+              "legendFormat": "{{device}} - Reads completed",
+              "refId": "A",
+              "step": 480
+            },
+            {
+              "expr": "irate(node_disk_writes_completed_total{instance=\"$SELECT_nodeexporter\",job=\"$SELECT_job\",device!~\".*p[0-9]]*\",device!~\"zram.*\",device!~\"synoboot.*\",device!~\"isda.*\",device!~\"md.*\",device!~\"mtdblock.*\"}[5m])",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "{{device}} - Writes completed",
+              "refId": "B",
+              "step": 240
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Disk IOps",
+          "tooltip": {
+            "shared": false,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:2425",
+              "format": "iops",
+              "label": "IO read (-) / write (+)",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:2426",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {
+            "io time": "#890F02"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$SELECT_datasource",
+          "decimals": 3,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
+          "fill": 4,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 11,
+            "w": 12,
+            "x": 12,
+            "y": 16
+          },
+          "hiddenSeries": false,
+          "id": 42,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": null,
+            "sortDesc": null,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "maxPerRow": 6,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.3.1",
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "$$hashKey": "object:3574",
+              "alias": "/.*read*./",
+              "transform": "negative-Y"
+            },
+            {
+              "$$hashKey": "object:3575",
+              "alias": "/.*sda.*/",
+              "color": "#7EB26D"
+            },
+            {
+              "$$hashKey": "object:3576",
+              "alias": "/.*sdb.*/",
+              "color": "#EAB839"
+            },
+            {
+              "$$hashKey": "object:3577",
+              "alias": "/.*sdc.*/",
+              "color": "#6ED0E0"
+            },
+            {
+              "$$hashKey": "object:3578",
+              "alias": "/.*sdd.*/",
+              "color": "#EF843C"
+            },
+            {
+              "$$hashKey": "object:3579",
+              "alias": "/.*sde.*/",
+              "color": "#E24D42"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "irate(node_disk_read_bytes_total{instance=\"$SELECT_nodeexporter\",job=\"$SELECT_job\",device!~\".*p[0-9]]*\",device!~\"zram.*\",device!~\"synoboot.*\",device!~\"isda.*\",device!~\"md.*\",device!~\"mtdblock.*\"}[5m])",
+              "format": "time_series",
+              "hide": false,
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "{{device}} - Successfully read bytes",
+              "refId": "A",
+              "step": 240
+            },
+            {
+              "expr": "irate(node_disk_written_bytes_total{instance=\"$SELECT_nodeexporter\",job=\"$SELECT_job\",device!~\".*p[0-9]]*\",device!~\"zram.*\",device!~\"synoboot.*\",device!~\"isda.*\",device!~\"md.*\",device!~\"mtdblock.*\"}[5m])",
+              "format": "time_series",
+              "hide": false,
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "{{device}} - Successfully written bytes",
+              "refId": "B",
+              "step": 240
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "I/O Usage Read / Write",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": false,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:3616",
+              "format": "bytes",
+              "label": "bytes read (-) / write (+)",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:3617",
+              "format": "ms",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {
             "Apps": "#629E51",
             "Buffers": "#614D93",
             "Cache": "#6D1F62",
@@ -1733,7 +2226,7 @@
             "h": 7,
             "w": 12,
             "x": 12,
-            "y": 20
+            "y": 27
           },
           "hiddenSeries": false,
           "id": 159,
@@ -1826,7 +2319,7 @@
       "type": "row"
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -1835,553 +2328,554 @@
         "y": 6
       },
       "id": 157,
-      "panels": [],
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$SELECT_datasource",
+          "editable": true,
+          "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
+          "fill": 5,
+          "fillGradient": 0,
+          "grid": {},
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 7
+          },
+          "hiddenSeries": false,
+          "id": 1,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.3.1",
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "sum(rate(container_cpu_usage_seconds_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name) * 100",
+              "format": "time_series",
+              "hide": false,
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "{{name}}",
+              "metric": "container_cp",
+              "refId": "F",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "CPU Usage per Container",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:3421",
+              "format": "percent",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:3422",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$SELECT_datasource",
+          "editable": true,
+          "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
+          "fill": 3,
+          "fillGradient": 0,
+          "grid": {},
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 12,
+            "y": 7
+          },
+          "hiddenSeries": false,
+          "id": 10,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": false,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.3.1",
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "sum(container_memory_rss{instance=~\"$SELECT_cadvisor\",name=~\".+\"}) by (name)",
+              "hide": false,
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "{{name}}",
+              "refId": "A",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Memory Usage per Container",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:2302",
+              "format": "bytes",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "$$hashKey": "object:2303",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$SELECT_datasource",
+          "editable": true,
+          "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
+          "fill": 1,
+          "fillGradient": 0,
+          "grid": {},
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 17
+          },
+          "hiddenSeries": false,
+          "id": 8,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.3.1",
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "sum(rate(container_network_receive_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)*8",
+              "hide": false,
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "{{name}}",
+              "refId": "A",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Received Network Traffic per Container",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:3502",
+              "format": "bps",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:3503",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "$SELECT_datasource",
+          "editable": true,
+          "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
+          "fill": 1,
+          "fillGradient": 0,
+          "grid": {},
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 17
+          },
+          "hiddenSeries": false,
+          "id": 9,
+          "isNew": true,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "hideEmpty": false,
+            "hideZero": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.3.1",
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "sum(rate(container_network_transmit_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)*8",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "{{name}}",
+              "refId": "A",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Sent Network Traffic per Container",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:3587",
+              "format": "bps",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:3588",
+              "format": "short",
+              "label": "",
+              "logBase": 10,
+              "max": 8,
+              "min": 0,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "columns": [
+            {
+              "$$hashKey": "object:138",
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$SELECT_datasource",
+          "editable": true,
+          "error": false,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 7,
+            "w": 12,
+            "x": 0,
+            "y": 25
+          },
+          "hideTimeOverride": false,
+          "id": 192,
+          "isNew": true,
+          "links": [],
+          "pageSize": 100,
+          "scroll": true,
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "$$hashKey": "object:140",
+              "align": "auto",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "pattern": "Time",
+              "type": "date"
+            },
+            {
+              "$$hashKey": "object:141",
+              "align": "auto",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 2,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
+              "intervalFactor": 2,
+              "legendFormat": "cAdvisor Version: {{cadvisorVersion}}",
+              "refId": "A",
+              "step": 2
+            },
+            {
+              "expr": "prometheus_build_info{}",
+              "intervalFactor": 2,
+              "legendFormat": "Prometheus Version: {{version}}",
+              "refId": "B",
+              "step": 2
+            },
+            {
+              "expr": "node_exporter_build_info{instance=~\"$SELECT_cadvisor\"}",
+              "intervalFactor": 2,
+              "legendFormat": "Node-Exporter Version: {{version}}",
+              "refId": "C",
+              "step": 2
+            },
+            {
+              "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
+              "hide": false,
+              "intervalFactor": 2,
+              "legendFormat": "Docker Version: {{dockerVersion}}",
+              "refId": "D",
+              "step": 2
+            },
+            {
+              "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
+              "intervalFactor": 2,
+              "legendFormat": "Host OS Version: {{osVersion}}",
+              "refId": "E",
+              "step": 2
+            },
+            {
+              "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
+              "intervalFactor": 2,
+              "legendFormat": "Host Kernel Version: {{kernelVersion}}",
+              "refId": "F",
+              "step": 2
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Software Versions",
+          "transform": "timeseries_aggregations",
+          "type": "table-old"
+        }
+      ],
       "title": "Cadvisor Basics",
       "type": "row"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$SELECT_datasource",
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "links": []
-        },
-        "overrides": []
-      },
-      "fill": 5,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 0,
-        "y": 7
-      },
-      "hiddenSeries": false,
-      "id": 1,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.1",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rate(container_cpu_usage_seconds_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name) * 100",
-          "format": "time_series",
-          "hide": false,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "{{name}}",
-          "metric": "container_cp",
-          "refId": "F",
-          "step": 2
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "CPU Usage per Container",
-      "tooltip": {
-        "msResolution": true,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:3421",
-          "format": "percent",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:3422",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$SELECT_datasource",
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "links": []
-        },
-        "overrides": []
-      },
-      "fill": 3,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 12,
-        "y": 7
-      },
-      "hiddenSeries": false,
-      "id": 10,
-      "isNew": true,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.1",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(container_memory_rss{instance=~\"$SELECT_cadvisor\",name=~\".+\"}) by (name)",
-          "hide": false,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "{{name}}",
-          "refId": "A",
-          "step": 2
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Memory Usage per Container",
-      "tooltip": {
-        "msResolution": true,
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:2302",
-          "format": "bytes",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "$$hashKey": "object:2303",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$SELECT_datasource",
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "links": []
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 17
-      },
-      "hiddenSeries": false,
-      "id": 8,
-      "isNew": true,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.1",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rate(container_network_receive_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)*8",
-          "hide": false,
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "{{name}}",
-          "refId": "A",
-          "step": 2
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Received Network Traffic per Container",
-      "tooltip": {
-        "msResolution": true,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:3502",
-          "format": "bps",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:3503",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$SELECT_datasource",
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "links": []
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "grid": {},
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 17
-      },
-      "hiddenSeries": false,
-      "id": 9,
-      "isNew": true,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 2,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.3.1",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rate(container_network_transmit_bytes_total{instance=~\"$SELECT_cadvisor\",name=~\".+\"}[5m])) by (name)*8",
-          "interval": "",
-          "intervalFactor": 2,
-          "legendFormat": "{{name}}",
-          "refId": "A",
-          "step": 2
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Sent Network Traffic per Container",
-      "tooltip": {
-        "msResolution": true,
-        "shared": true,
-        "sort": 0,
-        "value_type": "cumulative"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:3587",
-          "format": "bps",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:3588",
-          "format": "short",
-          "label": "",
-          "logBase": 10,
-          "max": 8,
-          "min": 0,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "columns": [
-        {
-          "$$hashKey": "object:138",
-          "text": "Avg",
-          "value": "avg"
-        }
-      ],
-      "datasource": "$SELECT_datasource",
-      "editable": true,
-      "error": false,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fontSize": "100%",
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 25
-      },
-      "hideTimeOverride": false,
-      "id": 192,
-      "isNew": true,
-      "links": [],
-      "pageSize": 100,
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 0,
-        "desc": true
-      },
-      "styles": [
-        {
-          "$$hashKey": "object:140",
-          "align": "auto",
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "pattern": "Time",
-          "type": "date"
-        },
-        {
-          "$$hashKey": "object:141",
-          "align": "auto",
-          "colorMode": null,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "decimals": 2,
-          "pattern": "/.*/",
-          "thresholds": [],
-          "type": "number",
-          "unit": "short"
-        }
-      ],
-      "targets": [
-        {
-          "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
-          "intervalFactor": 2,
-          "legendFormat": "cAdvisor Version: {{cadvisorVersion}}",
-          "refId": "A",
-          "step": 2
-        },
-        {
-          "expr": "prometheus_build_info{}",
-          "intervalFactor": 2,
-          "legendFormat": "Prometheus Version: {{version}}",
-          "refId": "B",
-          "step": 2
-        },
-        {
-          "expr": "node_exporter_build_info{instance=~\"$SELECT_cadvisor\"}",
-          "intervalFactor": 2,
-          "legendFormat": "Node-Exporter Version: {{version}}",
-          "refId": "C",
-          "step": 2
-        },
-        {
-          "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
-          "hide": false,
-          "intervalFactor": 2,
-          "legendFormat": "Docker Version: {{dockerVersion}}",
-          "refId": "D",
-          "step": 2
-        },
-        {
-          "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
-          "intervalFactor": 2,
-          "legendFormat": "Host OS Version: {{osVersion}}",
-          "refId": "E",
-          "step": 2
-        },
-        {
-          "expr": "cadvisor_version_info{instance=~\"$SELECT_cadvisor\"}",
-          "intervalFactor": 2,
-          "legendFormat": "Host Kernel Version: {{kernelVersion}}",
-          "refId": "F",
-          "step": 2
-        }
-      ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Software Versions",
-      "transform": "timeseries_aggregations",
-      "type": "table-old"
     },
     {
       "collapsed": true,
@@ -2390,7 +2884,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 32
+        "y": 7
       },
       "id": 163,
       "panels": [],
@@ -2404,7 +2898,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 33
+        "y": 8
       },
       "id": 167,
       "panels": [
@@ -2423,7 +2917,7 @@
             "h": 5,
             "w": 12,
             "x": 0,
-            "y": 23
+            "y": 42
           },
           "id": 190,
           "links": [],
@@ -2673,7 +3167,7 @@
             "h": 5,
             "w": 12,
             "x": 12,
-            "y": 23
+            "y": 42
           },
           "hide_first_column": false,
           "id": 186,
@@ -2829,7 +3323,7 @@
           "type": "yesoreyeram-boomtable-panel"
         },
         {
-          "activePatternIndex": -3,
+          "activePatternIndex": 4,
           "datasource": "$SELECT_datasource",
           "debug_mode": false,
           "defaultPattern": {
@@ -2897,9 +3391,9 @@
           },
           "gridPos": {
             "h": 5,
-            "w": 12,
+            "w": 18,
             "x": 0,
-            "y": 28
+            "y": 47
           },
           "hide_first_column": false,
           "id": 185,
@@ -2908,7 +3402,7 @@
               "bgColors": "green|orange|red",
               "bgColors_overrides": "0->green|2->red|1->yellow",
               "clickable_cells_link": "",
-              "col_name": "_1_",
+              "col_name": "Data Written",
               "decimals": 2,
               "defaultBGColor": "",
               "defaultTextColor": "",
@@ -2931,7 +3425,7 @@
               "null_color": "darkred",
               "null_textcolor": "black",
               "null_value": "No data",
-              "pattern": "Written.*$",
+              "pattern": "WrittenL.*$",
               "row_col_wrapper": "_",
               "row_name": "_0_",
               "textColors": "red|orange|green",
@@ -2947,7 +3441,7 @@
               "bgColors": "green|orange|red",
               "bgColors_overrides": "0->green|2->red|1->yellow",
               "clickable_cells_link": "",
-              "col_name": "_1_",
+              "col_name": "Data Read",
               "decimals": 2,
               "defaultBGColor": "",
               "defaultTextColor": "",
@@ -2970,7 +3464,7 @@
               "null_color": "darkred",
               "null_textcolor": "black",
               "null_value": "No data",
-              "pattern": "Read.*$",
+              "pattern": "ReadL.*$",
               "row_col_wrapper": "_",
               "row_name": "_0_",
               "textColors": "red|orange|green",
@@ -3020,6 +3514,84 @@
               "transform_values": "_value_|_value_|_value_",
               "transform_values_overrides": "0->down|1->up",
               "valueName": "current"
+            },
+            {
+              "bgColors": "green|red",
+              "bgColors_overrides": "0->green|2->red|1->yellow",
+              "clickable_cells_link": "",
+              "col_name": "Uncorrectable Errors",
+              "decimals": "0",
+              "defaultBGColor": "",
+              "defaultTextColor": "",
+              "delimiter": "|",
+              "displayTemplate": "_value_",
+              "enable_bgColor": true,
+              "enable_bgColor_overrides": false,
+              "enable_clickable_cells": false,
+              "enable_textColor": false,
+              "enable_textColor_overrides": false,
+              "enable_time_based_thresholds": false,
+              "enable_transform": false,
+              "enable_transform_overrides": false,
+              "filter": {
+                "value_above": "",
+                "value_below": ""
+              },
+              "format": "none",
+              "name": "Uncorrectable Errors",
+              "null_color": "green",
+              "null_textcolor": "black",
+              "null_value": "No data",
+              "pattern": "ReadUn.*$",
+              "row_col_wrapper": "_",
+              "row_name": "_0_",
+              "textColors": "green|orange|red",
+              "textColors_overrides": "0->red|2->green|1->yellow",
+              "thresholds": "1",
+              "time_based_thresholds": [],
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+              "transform_values": "_value_|_value_|_value_",
+              "transform_values_overrides": "0->down|1->up",
+              "valueName": "avg"
+            },
+            {
+              "bgColors": "green|red",
+              "bgColors_overrides": "0->green|2->red|1->yellow",
+              "clickable_cells_link": "",
+              "col_name": "Reallocated Sectors",
+              "decimals": "0",
+              "defaultBGColor": "",
+              "defaultTextColor": "",
+              "delimiter": "|",
+              "displayTemplate": "_value_",
+              "enable_bgColor": true,
+              "enable_bgColor_overrides": false,
+              "enable_clickable_cells": false,
+              "enable_textColor": false,
+              "enable_textColor_overrides": false,
+              "enable_time_based_thresholds": false,
+              "enable_transform": false,
+              "enable_transform_overrides": false,
+              "filter": {
+                "value_above": "",
+                "value_below": ""
+              },
+              "format": "none",
+              "name": "Reallocated Sectors",
+              "null_color": "green",
+              "null_textcolor": "black",
+              "null_value": "No data",
+              "pattern": "ReadErr.*$",
+              "row_col_wrapper": "_",
+              "row_name": "_0_",
+              "textColors": "green|orange|red",
+              "textColors_overrides": "0->red|2->green|1->yellow",
+              "thresholds": "1",
+              "time_based_thresholds": [],
+              "tooltipTemplate": "Series : _series_ <br/>Row Name : _row_name_ <br/>Col Name : _col_name_ <br/>Value : _value_",
+              "transform_values": "_value_|_value_|_value_",
+              "transform_values_overrides": "0->down|1->up",
+              "valueName": "avg"
             }
           ],
           "pluginVersion": "7.3.1",
@@ -3032,13 +3604,13 @@
             {
               "expr": " (smartmon_total_lbas_written_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"} * on(disk,instance,device_model,serial_number) smartmon_device_sector_size_logical)",
               "interval": "",
-              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | Total Written",
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | WrittenLBA",
               "refId": "A"
             },
             {
               "expr": " (smartmon_total_lbas_read_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"} * on(disk,instance,device_model,serial_number) smartmon_device_sector_size_logical)",
               "interval": "",
-              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | Total Read",
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | ReadLBA",
               "refId": "B"
             },
             {
@@ -3046,6 +3618,18 @@
               "interval": "",
               "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | Wear Level",
               "refId": "C"
+            },
+            {
+              "expr": "avg(smartmon_reallocated_sector_ct_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number)  ",
+              "interval": "",
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | ReadError",
+              "refId": "D"
+            },
+            {
+              "expr": "avg(smartmon_reported_uncorrect_raw_value{instance=~\"$SELECT_nodeexporter\",serial_number=~\"$disk_sn\"}) by (device_model,serial_number)    ",
+              "interval": "",
+              "legendFormat": "{{device_model}} (S/N: {{serial_number}}) | ReadUncorrect",
+              "refId": "E"
             }
           ],
           "timeFrom": null,
@@ -3072,9 +3656,9 @@
           "fillGradient": 0,
           "gridPos": {
             "h": 5,
-            "w": 12,
-            "x": 12,
-            "y": 28
+            "w": 6,
+            "x": 18,
+            "y": 47
           },
           "hiddenSeries": false,
           "id": 181,
@@ -3087,7 +3671,7 @@
             "max": false,
             "min": false,
             "rightSide": true,
-            "show": true,
+            "show": false,
             "sort": "current",
             "sortDesc": true,
             "total": false,
@@ -3165,7 +3749,7 @@
               "label": "Errors",
               "logBase": 1,
               "max": null,
-              "min": null,
+              "min": "0",
               "show": true
             },
             {
@@ -3219,7 +3803,7 @@
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 33
+            "y": 52
           },
           "id": 171,
           "links": [],
@@ -3271,7 +3855,7 @@
             "h": 7,
             "w": 12,
             "x": 12,
-            "y": 33
+            "y": 52
           },
           "hiddenSeries": false,
           "id": 175,
@@ -3415,7 +3999,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "raspi4",
           "value": "raspi4"
         },
@@ -3503,7 +4087,7 @@
         "datasource": "$SELECT_datasource",
         "definition": "label_values(smartmon_device_smart_available{job=\"$SELECT_job\"}, serial_number)",
         "error": null,
-        "hide": 0,
+        "hide": 2,
         "includeAll": true,
         "label": null,
         "multi": true,
@@ -3530,5 +4114,5 @@
   "timezone": "",
   "title": "RasPi Supervision",
   "uid": "m3BOcCiRkx",
-  "version": 45
+  "version": 59
 }
